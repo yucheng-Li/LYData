@@ -9,13 +9,32 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.felixcheng.LYData",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "fetch",
+          "remote-notification"
+        ],
+        "NSCameraUsageDescription": "This app does not need camera access.",
+        "NSPhotoLibraryUsageDescription": "This app does not need photo library access.",
+        "NSMicrophoneUsageDescription": "This app does not need microphone access.",
+        "NSLocationWhenInUseUsageDescription": "This app does not need location access.",
+        "NSUserNotificationUsageDescription": "我们需要发送通知来及时通知您日元汇率的变化。",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app does not need location access.",
+        "NSLocationAlwaysUsageDescription": "This app does not need location access."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "NOTIFICATIONS",
+        "BACKGROUND_FETCH",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -32,10 +51,26 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ffffff",
+          "mode": "production"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "de113dce-b057-4be7-b566-d74f330b0301"
+      }
     }
   }
 }
